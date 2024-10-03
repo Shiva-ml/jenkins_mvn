@@ -1,0 +1,6 @@
+projectKey=com.shiva.keycloakspi:pin-authenticator
+serverUrl=http://localhost:9000
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=com.shiva.keycloakspi%3Apin-authenticator
+ceTaskId=5371a5c9-ad64-4003-8bac-4f282a01d90d
+ceTaskUrl=http://localhost:9000/api/ce/task?id=5371a5c9-ad64-4003-8bac-4f282a01d90d

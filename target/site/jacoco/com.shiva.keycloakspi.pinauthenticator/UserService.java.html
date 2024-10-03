@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pin-authenticator</a> &gt; <a href="index.source.html" class="el_package">com.shiva.keycloakspi.pinauthenticator</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package com.shiva.keycloakspi.pinauthenticator;
+
+import org.jboss.logging.Logger;
+import org.keycloak.models.KeycloakSession;
+import org.keycloak.broker.provider.util.SimpleHttp;
+
+import jakarta.ws.rs.core.Response;
+
+public class UserService {
+
+    private final KeycloakSession session;
+<span class="nc" id="L12">    private static final Logger LOGGER = Logger.getLogger(UserService.class);</span>
+
+<span class="nc" id="L14">    public UserService(KeycloakSession session) {</span>
+<span class="nc" id="L15">        this.session = session;</span>
+<span class="nc" id="L16">    }</span>
+
+    public boolean verifyUserPin(String username, String pin) {
+<span class="nc" id="L19">        boolean verified = false;</span>
+        try {
+<span class="nc" id="L21">            SimpleHttp.Response response = SimpleHttp.doPost(&quot;http://localhost:8081/users/&quot; + username + &quot;/verify-pin&quot;, session)</span>
+<span class="nc" id="L22">                    .param(&quot;pin&quot;, pin)  // Add form parameter</span>
+<span class="nc" id="L23">                    .header(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;)  // Set the content type to form-urlencoded</span>
+<span class="nc" id="L24">                    .asResponse();  // Send the request and get the response</span>
+
+<span class="nc bnc" id="L26" title="All 2 branches missed.">            if (response.getStatus() == Response.Status.OK.getStatusCode()) {</span>
+<span class="nc" id="L27">                verified = true;</span>
+            }
+<span class="nc" id="L29">        } catch (Exception e) {</span>
+<span class="nc" id="L30">            LOGGER.error(&quot;Error verifying user pin&quot;, e);</span>
+<span class="nc" id="L31">        }</span>
+<span class="nc" id="L32">        return verified;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

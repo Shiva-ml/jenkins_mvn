@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+pin-authenticator,com.shiva.keycloakspi.pinauthenticator,UserService,40,0,2,0,15,0,4,0,3,0
+pin-authenticator,com.shiva.keycloakspi.pinauthenticator,PinAuthenticator,92,0,8,0,27,0,11,0,7,0
+pin-authenticator,com.shiva.keycloakspi.pinauthenticator,pinauthenticatorfactory,50,0,0,0,14,0,13,0,13,0
