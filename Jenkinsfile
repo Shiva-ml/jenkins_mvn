@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+    stages {  // Wrap the stages inside a 'stages' block
         stage('Maven Clean') {
             steps {
                 script {
@@ -9,7 +10,6 @@ pipeline {
             }
         }
 
-        
         stage('Maven Package') {
             steps {
                 script {
@@ -28,8 +28,6 @@ pipeline {
             }
         }
     }
-    
-   
 
     post {
         success {
